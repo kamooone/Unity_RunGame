@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class InputFielsManager : MonoBehaviour
 {
-    //InputFieldを格納するための変数
+  //InputFieldを格納するための変数
     InputField inputField;
 
     public GameObject DataManager;
@@ -25,8 +25,8 @@ public class InputFielsManager : MonoBehaviour
         username = "";
         score = 0;
     }
-
-
+ 
+ 
     //入力された名前情報を読み取ってコンソールに出力する関数
     public void GetInputName()
     {
@@ -38,7 +38,7 @@ public class InputFielsManager : MonoBehaviour
 
         // DB登録
         DataManager.GetComponent<DataManager>().Save(username, score);
-
+ 
         //入力フォームのテキストを空にする
         inputField.text = "";
 

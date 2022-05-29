@@ -9,6 +9,8 @@ public class G_Manager : MonoBehaviour
     private static bool titleFlg = false;
     private static bool selectFlg = false;
 
+    public static int nowSelectGameStage = 0;
+
 
     private void Awake()
     {
@@ -40,7 +42,10 @@ public class G_Manager : MonoBehaviour
     }
     public void SetSelectFlg_True()
     {
-        selectFlg = true;
+        if (nowSelectGameStage != 0)
+        {
+            selectFlg = true;
+        }
     }
 
 
@@ -67,10 +72,42 @@ public class G_Manager : MonoBehaviour
 
 
 
+    public void SetSelectGameStage1()
+    {
+        nowSelectGameStage = 1;
+    }
+
+    public void SetSelectGameStage2()
+    {
+        nowSelectGameStage = 2;
+    }
+
+    public void SetSelectGameStage3()
+    {
+        nowSelectGameStage = 3;
+    }
+
+
 
     public void GameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        if (nowSelectGameStage != 0)
+        {
+            if (nowSelectGameStage == 1)
+            {
+                SceneManager.LoadScene("GameScene");
+            }
+
+            if (nowSelectGameStage == 2)
+            {
+                SceneManager.LoadScene("GameScene2");
+            }
+
+            if (nowSelectGameStage == 3)
+            {
+                SceneManager.LoadScene("GameScene3");
+            }
+        }
     }
 
     public void SelectScene()

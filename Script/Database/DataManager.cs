@@ -10,7 +10,7 @@ public class DataManager : MonoBehaviour
         string name = value_name;
         int score = value_score;
         string jsonString = "[ { \"name\": \"" + name + "\", \"score\": \"" + score + "\" }]";
-        StartCoroutine(Post("APIURL", jsonString));
+        StartCoroutine(Post("http://kamooone.sakura.ne.jp/SetRanking.php", jsonString));
     }
 
     IEnumerator Post(string url, string bodyJsonString)
@@ -24,10 +24,5 @@ public class DataManager : MonoBehaviour
         yield return request.Send();
 
         Debug.Log("Status Code: " + request.responseCode);
-    }
-
-    private void OnDestroy()
-    {
-        Destroy(this.gameObject);
     }
 }

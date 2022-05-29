@@ -35,7 +35,7 @@ public class FadeOut : MonoBehaviour
             }
         }
 
-        if (G_Manager.instance.GetSelectFlg())
+        if (G_Manager.instance.GetSelectFlg() && G_Manager.nowSelectGameStage != 0)
         {
             if (alfa <= 1.0f)
             {
@@ -44,8 +44,23 @@ public class FadeOut : MonoBehaviour
             }
             if (alfa >= 1.0f)
             {
-                G_Manager.instance.SetSelectFlg(false);
-                SceneManager.LoadScene("GameScene");
+                if (G_Manager.nowSelectGameStage == 1)
+                {
+                    G_Manager.instance.SetSelectFlg(false);
+                    SceneManager.LoadScene("GameScene");
+                }
+
+                if (G_Manager.nowSelectGameStage == 2)
+                {
+                    G_Manager.instance.SetSelectFlg(false);
+                    SceneManager.LoadScene("GameScene2");
+                }
+
+                if (G_Manager.nowSelectGameStage == 3)
+                {
+                    G_Manager.instance.SetSelectFlg(false);
+                    SceneManager.LoadScene("GameScene3");
+                }
             }
         }
     }
